@@ -27,6 +27,7 @@ class RoomFactory extends Factory
         $description='Bu Mesaj Odasının Açıklaması Mesaj Odası1';
         return [
             'name'=>$name,
+            'status'=>'publish',
             'description'=>$description,
 
 

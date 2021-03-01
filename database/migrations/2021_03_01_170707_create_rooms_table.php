@@ -16,6 +16,7 @@ class CreateRoomsTable extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->enum('status', ['publish','passive'])->default('passive');
             $table->LongText('description');
             $table->timestamps();
         });
