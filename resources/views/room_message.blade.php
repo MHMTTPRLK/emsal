@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <!-- Fonts -->
@@ -53,6 +53,10 @@
         }
 
     </style>
+
+    <script src="{{mix('js/app.js')}}"></script>
+
+
 </head>
 <body onload="scrollDown1()">
 <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
@@ -140,8 +144,8 @@
                     <div class="row">
 
                         <div class="col col-md-10 col-lg-9 mx-auto">
-                            <form action="{{route('message.post')}}" method="POST">
-                                @csrf
+                            <form id="frm"  method="POST" action="{{route('message.post')}}">
+                                    @csrf
                             <div class="row d-flex justify-content-center">
                                 <div class="col-12 col-md-9 align-self-center my-0">
                                     <div class="row d-flex align-self-center justify-content-center">
@@ -161,7 +165,7 @@
                                 justify-content-center justify-content-md-end my-0">
                                     <div class="md-form my-1">
 
-                                        <button onclick="yenile()" type="submit" class="btn btn-success" id="btnGonder" disabled>Send Message</button>
+                                        <button onclick="yenile()" type="submit" class="btn btn-success save-data" id="btnGonder" disabled>Send Message</button>
 
                                     </div>
                                 </div>
@@ -233,9 +237,9 @@
         document.location.reload(true);
     }
 
+</script>
 
-
-
+<script>
 
 </script>
 

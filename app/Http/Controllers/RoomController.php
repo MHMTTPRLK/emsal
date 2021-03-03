@@ -22,4 +22,5 @@ class RoomController extends Controller
         return view('room_message',compact('room','messages'));
     }
 
+
 }

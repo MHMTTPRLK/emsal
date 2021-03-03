@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\ReportSendAlarmCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,7 +14,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        ReportSendAlarmCommand::class
     ];
 
     /**
@@ -25,6 +26,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+       /* $schedule->call(function(){
+           Log:info('rapor gönderildi');
+
+        })->everyMinute();*/
+        $schedule->command('alarm:send')->everyMinute();
     }
 
     /**
