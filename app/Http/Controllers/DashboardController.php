@@ -13,11 +13,6 @@ class DashboardController extends Controller
           return view('welcome',compact('rooms'));
   }
 
-  public function roomShow($id)
-  {
-      $room=Room::where('status','publish')->findOrFail($id);
 
-      return view('room_message',compact('room'));
-  }
 
 }

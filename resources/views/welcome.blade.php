@@ -27,6 +27,13 @@
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                 document.getElementById('logout-form').submit();" class="text-sm text-gray-700 underline ml-2">Logout</a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
 
@@ -48,9 +55,7 @@
 
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="float-right ">
-                      <a href="" class="btn btn-success ">   <i class="fas fa-plus"></i> Oda Oluştur</a>
-                    </div>
+
                     <div class="grid grid-cols-1 md:grid-cols-2">
 
 

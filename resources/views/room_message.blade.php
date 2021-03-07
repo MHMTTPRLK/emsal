@@ -63,7 +63,13 @@
     @if (Route::has('login'))
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
-                <a href="{{ url('/logout')}}" class="btn btn-success  float-right mr-2">Çıkış</a>
+                <a href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                 document.getElementById('logout-form').submit();" class="btn btn-success   float-right mr-2">Çıkış</a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
                <a href="{{ route('welcome')}}" class="btn btn-success  float-right mr-2">Anasayfa</a>
 
 
@@ -165,7 +171,7 @@
                                 justify-content-center justify-content-md-end my-0">
                                     <div class="md-form my-1">
 
-                                        <button onclick="yenile()" type="submit" class="btn btn-success save-data" id="btnGonder" disabled>Send Message</button>
+                                        <button onclick="yenile()" type="submit" class="btn btn-success save-data" id="btnGonder" disabled>Mesaj Gönder</button>
 
                                     </div>
                                 </div>
@@ -187,9 +193,6 @@
 
 </body>
 <script>
-    var gonder=document.getElementById('btnGonder');
-    var  msg=document.getElementById('mesaj');
-
     var myNotify;
     function pushNotify() {
         myNotify = new Notify({
@@ -213,6 +216,10 @@
     function close() {
         myNotify.close()
     }
+    var gonder=document.getElementById('btnGonder');
+    var  msg=document.getElementById('mesaj');
+
+
     function myFunction()
     {
 

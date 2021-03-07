@@ -11,13 +11,6 @@ class Room extends Model
     protected $fillable=['name','description','status'];
 
 
-    public function messages()
-    {
-        return $this->hasOne('App\Models\Message');
-    }
 
-    public function my_messages()
-    {
-        return $this->hasMany('App\Models\Message')->where('user_id',auth()->user()->id);
-    }
+
 }
